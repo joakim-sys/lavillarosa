@@ -10,8 +10,8 @@ __pycache__/
 *.sqlite3
 db.sqlite3
 # villarosadb
-media/
-static/
+# media/
+# static/
 collect_static/
 
 # Environment variables
