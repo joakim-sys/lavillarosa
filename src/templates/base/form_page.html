@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags navigation_tags wagtailimages_tags crispy_forms_tags %}
+
+{% block content %}
+
+<section id="" class="">
+  <div class="container">
+    <div class="section-title">{{page.title}}</div>
+  
+
+  <div class="row">
+    {% if page.intro %}
+    <p class="intro">{{ page.intro|richtext }}</p>
+    {% endif %}
+    {% if page.body %}
+        {{ page.body|richtext }}
+    {% endif %}
+
+    {{ page.body|richtext }}
+
+    <form action="{% pageurl page %}" method="post">
+        {{form|crispy}}
+        <div class="text-center">
+            <button type="submit" class="btn btn-danger">Send Message</button>
+          </div>
+    </form>
+  </div>
+</div>
+</section>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-title">
+        {% with heading=page.tabs_section_heading subheading=page.tabs_section_subheading %}
+        <h2>{{heading|default_if_none:""}}</h2>
+        <p>{{subheading|default_if_none:""}}</p>    
+        {% endwith %}
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <ul class="nav nav-tabs flex-column">
+            {% for tab in page.get_tabs %}
+          <li class="nav-item">
+            <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab" href="#tab-{{tab.id}}"
+              >{{tab.title|title}}</a
+            >
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="tab-content">
+            {% for tab  in page.get_tabs %}
+          <div class="tab-pane {% if forloop.first %}active show{% endif %}" id="tab-{{tab.id}}">
+            <div class="row">
+              <div class="col-lg-8 details order-2 order-lg-1">
+                {{tab.content|richtext}}
+              </div>
+              <div class="col-lg-4 text-center order-1 order-lg-2">
+                {% image tab.image original as photo %}
+                <img src="{{photo.url}}" alt="" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Features Section -->

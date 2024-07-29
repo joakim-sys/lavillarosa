@@ -1,0 +1,27 @@
+{% load wagtailcore_tags %}
+{% for asection in page.about_section %}
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title">
+    {% with heading=page.about_section_heading subheading=page.about_section_subheading %}
+    <h2>{{heading|default_if_none:""}}</h2>
+    <p>{{subheading|default_if_none:""}}</p>    
+    {% endwith %}
+    </div>
+    
+    <div class="row content">
+      <div class="col-lg-6">
+        <h2>{{asection.value.heading}}</h2>
+        <h3>
+            {{asection.value.subheading}}
+        </h3>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        {{asection.value.text|richtext}}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+{% endfor %}

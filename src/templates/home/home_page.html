@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<style>
+/* styles.css */
+
+.main-image img, .thumb img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.thumb, .main-image {
+    position: relative;
+}
+
+.thumb .img-container, .main-image .img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.thumb img, .main-image img {
+    transition: transform 0.3s ease;
+}
+
+.thumb .overlay, .main-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.thumb:hover .overlay, .main-image:hover .overlay {
+    opacity: 1;
+}
+
+.thumb .icon, .main-image .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.thumb:hover .icon, .main-image:hover .icon {
+    opacity: 1;
+}
+
+.icon {
+    font-size: 2rem;
+    color: white;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 0;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.carousel-item img {
+    height: 60vh;
+    object-fit: cover;
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnail {
+    max-width: 80px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.modal .carousel-control-prev, .modal .carousel-control-next {
+    width: 5%;
+}
+
+.modal .carousel-control-prev-icon, .modal .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.modal .close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: transparent;
+    color: white;
+    opacity: 1;
+    font-size: 1.5rem;
+}
+
+</style>
+{% endblock extra_css %}
+
+{% block hero %}
+{% include "sections/hero.html" %}
+{% endblock hero %}
+
+{% block content %}
+
+{% comment %} {% include 'sections/image_gallery.html' %} {% endcomment %}
+
+{% include "sections/about.html" %}
+
+{% include "sections/clients.html" %}
+
+{% include "sections/services.html" %}
+
+{% include "sections/portfolio.html" %}
+
+{% include "sections/features.html" %}
+
+{% endblock content %}
+
+
+{% block extra_js %}
+<script>
+    $('#imageModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var index = button.data('index');
+        var carousel = $(this).find('.carousel-inner');
+        carousel.find('.carousel-item').removeClass('active');
+        carousel.find('.carousel-item').eq(index).addClass('active');
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

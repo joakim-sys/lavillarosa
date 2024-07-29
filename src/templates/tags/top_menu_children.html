@@ -1,0 +1,19 @@
+{% load navigation_tags wagtailcore_tags %}
+
+<ul>
+    {% for child in menuitems_children %}
+  <li><a href="{% pageurl child %}">{{child.title}}</a></li>
+
+  {% comment %}
+  <li class="dropdown">
+    <a href="#"
+      ><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i
+    ></a>
+    <ul>
+      <li><a href="#">Deep Drop Down 1</a></li>
+      <li><a href="#">Deep Drop Down 2</a></li>
+    </ul>
+  </li>
+  {% endcomment %}
+  {% endfor %}
+</ul>

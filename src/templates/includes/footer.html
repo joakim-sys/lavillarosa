@@ -1,0 +1,74 @@
+{% load navigation_tags wagtailcore_tags %}
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-info">
+            <h3>La Villa Rosa</h3>
+            <p>
+              {{settings.base.GenericSettings.address}}<br /><br />
+              <strong>Phone:</strong> {{settings.base.GenericSettings.phone}}<br />
+              <strong>Email:</strong> {{settings.base.GenericSettings.email}}<br />
+            </p>
+            <div class="social-links mt-3">
+              <a href="{{settings.base.GenericSettings.twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="{{settings.base.GenericSettings.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="settings.base.GenericSettings.instagram" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="{{settings.base.GenericSettings.skype}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="{{settings.base.GenericSettings.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            {% get_site_root as site_root %}
+            {% get_footer_links parent=site_root as links %}
+            {% for link in links %}
+            <li><i class="bx bx-chevron-right"></i> <a href="{% pageurl link %}">{{link.title}}</a></li>
+            {% endfor %}
+ 
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          {% get_services as services %}
+          <ul>
+            {% for service in services %}
+            <li>
+              <i class="bx bx-chevron-right"></i> <a href="{% if service.service_page %}{% pageurl service.service_page %}{% else %}#{% endif %}">{{service.name|title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% comment %} <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>
+            Tamen quem nulla quae legam multos aute sint culpa legam noster
+            magna
+          </p>
+          <form action="" method="post">
+            <input type="email" name="email" /><input
+              type="submit"
+              value="Subscribe"
+            />
+          </form>
+        </div> {% endcomment %}
+
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>La Villa Rosa</span></strong
+      >. All Rights Reserved
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->

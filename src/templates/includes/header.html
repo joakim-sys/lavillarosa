@@ -1,0 +1,23 @@
+{% load wagtailcore_tags navigation_tags %}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center">
+    <h1 class="logo me-auto"><a href="/">
+        La Villa Rosa       
+    </a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar">
+        {% get_site_root as site_root %}
+    <ul>
+        <li><a href="/" class="active">Home</a></li>
+        {% top_menu parent=site_root calling_page=self %}
+  {% comment %} <li><a href="/" class="getstarted">Get Started</a></li> {% endcomment %}
+    </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+  </div>
+</header>
+<!-- End Header -->
