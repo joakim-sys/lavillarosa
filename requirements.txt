@@ -20,10 +20,10 @@ djangorestframework==3.15.2
 draftjs-exporter==5.0.0
 et-xmlfile==1.1.0
 filetype==1.2.0
+gunicorn==22.0.0
 idna==3.7
 l18n==2021.3
 laces==0.1.1
-mysqlclient==2.2.4
 openpyxl==3.1.4
 packaging==24.1
 pillow==10.3.0
