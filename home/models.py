@@ -113,7 +113,7 @@ class Service(ClusterableModel):
         help_text="Choose a page for this service",
     )
 
-    icon = models.CharField(max_length=255, null=True)
+    icon = models.CharField(max_length=255, null=True,default='bi-house')
 
     panels = [
         FieldPanel("name"),
