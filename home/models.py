@@ -118,13 +118,17 @@ class Service(ClusterableModel):
     panels = [
         FieldPanel("name"),
         FieldPanel("description"),
-        FieldPanel("icon"),
+        FieldPanel(
+            "icon",
+            heading="Bootstrap icon",
+            help_text="Enter the Bootstrap icon name (e.g., bi-house)",
+        ),
         FieldPanel("service_page"),
     ]
 
     class Meta:
-        verbose_name_plural = 'Icon Items'
-        verbose_name = 'Icon Item'
+        verbose_name_plural = "Icon Items"
+        verbose_name = "Icon Item"
 
     def __str__(self):
         return self.name
@@ -150,7 +154,7 @@ class FeatureTab(ClusterableModel):
 
     def __str__(self):
         return self.title
-    
+
 
 class FeatureTabOrderable(Orderable):
     page = ParentalKey("HomePage", related_name="tabs")
