@@ -6,7 +6,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 
 DEVELOPMENT_MODE = int(os.environ.get("DEVELOPMENT_MODE", default=1))
-DEBUG = True
 SECRET_KEY = "django-insecure-gh3g^^89%wbc@k3)t&sj&n83jnzhu-jlqptyin4x3n0gms%7u0"
 
 
