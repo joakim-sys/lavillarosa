@@ -19,7 +19,7 @@ else:
     )
 
 # Make sure Django can detect a secure connection properly on Heroku:
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -84,27 +84,27 @@ if (
         )
 
 # Force HTTPS redirect (enabled by default!)
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 # This will allow the cache to swallow the fact that the website is behind TLS
 # and inform the Django using "X-Forwarded-Proto" HTTP header.
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
-DEFAULT_HSTS_SECONDS = 30 * 24 * 60 * 60  # 30 days
-SECURE_HSTS_SECONDS = int(
-    os.environ.get("SECURE_HSTS_SECONDS", DEFAULT_HSTS_SECONDS)
-)  # noqa
+# DEFAULT_HSTS_SECONDS = 30 * 24 * 60 * 60  # 30 days
+# SECURE_HSTS_SECONDS = int(
+#     os.environ.get("SECURE_HSTS_SECONDS", DEFAULT_HSTS_SECONDS)
+# )  # noqa
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
 
-REFERRER_POLICY = os.environ.get(  # noqa
-    "SECURE_REFERRER_POLICY", "no-referrer-when-downgrade"
-).strip()
+# REFERRER_POLICY = os.environ.get(  # noqa
+#     "SECURE_REFERRER_POLICY", "no-referrer-when-downgrade"
+# ).strip()
 
-WAGTAIL_REDIRECTS_FILE_STORAGE = "cache"
+# WAGTAIL_REDIRECTS_FILE_STORAGE = "cache"
 
 
 try:
