@@ -7,6 +7,11 @@ from .base import *
 
 DEBUG = False
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://thevillarosa.net',
+    'https://www.thevillarosa.net',  # Include 'www' if applicable
+]
+
 if "DJANGO_SECRET_KEY" in os.environ:
     SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 else:
