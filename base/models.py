@@ -89,7 +89,7 @@ class GenericSettings(ClusterableModel, BaseGenericSetting):
                 FieldPanel("facebook_url"),
                 FieldPanel("instagram_url"),
                 FieldPanel("linkedin_url"),
-                FieldPanel("skyp_url"),
+                FieldPanel("skype_url"),
             ],
             "Social Settings",
         ),
