@@ -11,8 +11,8 @@ __pycache__/
 db.sqlite3
 villarosadb
 media/
-static/
-# collect_static/
+# static/
+collect_static/
 
 # Environment variables
 .env
