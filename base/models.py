@@ -8,7 +8,7 @@ from wagtail.contrib.settings.models import (
 from modelcluster.models import ClusterableModel
 from wagtail.admin.panels import MultiFieldPanel, FieldPanel, InlinePanel, FieldRowPanel
 from wagtail.fields import RichTextField
-from wagtail.models import Page
+from wagtail.models import Page, Collection
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 from modelcluster.fields import ParentalKey
 
@@ -65,6 +65,26 @@ class FormPage(AbstractEmailForm):
             "Email",
         ),
     ]
+
+
+class GalleryPage(Page):
+
+    introduction = models.TextField(help_text="Text to describe the page", blank=True)
+    body = RichTextField(blank=True)
+    collection = models.ForeignKey(
+        Collection,
+        limit_choices_to=~models.Q(name__in=["Root"]),
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        help_text="Select the image collection for this gallery.",
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body"),
+        FieldPanel("collection"),
+    ]
+    subpage_types = []
 
 
 @register_setting

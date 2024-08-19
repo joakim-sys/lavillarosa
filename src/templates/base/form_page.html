@@ -5,12 +5,14 @@
 
 <section id="" class="">
   <div class="container">
-    <div class="section-title">{{page.title}}</div>
+    <div class="section-title">
+      <h2>{{page.title}}</h2>
+    </div>
   
 
   <div class="row">
     {% if page.intro %}
-    <p class="intro">{{ page.intro|richtext }}</p>
+    <p class="lead">{{ page.intro|richtext }}</p>
     {% endif %}
     {% if page.body %}
         {{ page.body|richtext }}
